@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Leaderboard</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    h1 {
+      text-align: center;
+    }
+    ol {
+      padding-left: 20px;
+      text-align: left;
+    }
+    li {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🏆 Leaderboard</h1>
+    <ol id="leaderboard-list">
+      <!-- Scores will appear here -->
+    </ol>
+
+    <!-- ✅ Play Again button -->
+    <button onclick="playAgain()">🔄 Play Again</button>
+  </div>
+
+  <script>
+    const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+    const list = document.getElementById("leaderboard-list");
+
+    if (leaderboard.length === 0) {
+      list.innerHTML = "<p>No scores yet.</p>";
+    } else {
+      leaderboard.forEach(entry => {
+        const li = document.createElement("li");
+        li.textContent = `${entry.name} - ${entry.score}`;
+        list.appendChild(li);
+      });
+    }
+
+    function playAgain() {
+      // Change this if your main quiz file has a different name
+      window.location.href = "index.html"; 
+    }
+  </script>
+</body>
+</html>

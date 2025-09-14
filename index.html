@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Sharp</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      nav {
+        background-color: #f0f0f0;
+        padding: 10px;
+        text-align: center;
+      }
+      nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="start-screen" class="screen">
+      <div class="center-box">
+        <h1>Welcome to Quiz Mania</h1>
+        <input
+          type="text"
+          id="username"
+          placeholder="Enter your name"
+          id="name"
+        />
+        <label for="level">Select Level:</label>
+        <select id="level">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <select id="category">
+          <option value="9">General Knowledge</option>
+          <option value="10">Books</option>
+          <option value="11">Film</option>
+          <option value="12">Music</option>
+          <option value="13">Musicals & Theatres</option>
+          <option value="14">Television</option>
+          <option value="15">Video Games</option>
+          <option value="16">Board Games</option>
+          <option value="17">Science & Nature</option>
+          <option value="18">Computers</option>
+          <option value="19">Mathematics</option>
+          <option value="20">Mythology</option>
+          <option value="21">Sports</option>
+          <option value="22">Geography</option>
+          <option value="23">History</option>
+          <option value="24">Politics</option>
+          <option value="25">Art</option>
+          <option value="26">Celebrities</option>
+          <option value="27">Animals</option>
+          <option value="28">Vehicles</option>
+          <option value="29">Comics</option>
+          <option value="30">Gadgets</option>
+          <option value="31">Anime & Manga</option>
+          <option value="32">Cartoon & Animations</option>
+        </select>
+        <button onclick="startQuiz()">Start Quiz</button>
+      </div>
+    </div>
+
+    <div id="quiz-screen" class="hide">
+      <div id="quiz-header">
+        <div id="progress-container">
+          <div id="progress-bar"></div>
+        </div>
+        <div id="timer-container">
+          <svg width="40" height="40">
+            <circle
+              id="timer-circle"
+              cx="20"
+              cy="20"
+              r="20"
+              fill="none"
+              stroke="#fff"
+              stroke-width="4"
+              stroke-dasharray="125.6"
+              stroke-dashoffset="0"
+            ></circle>
+          </svg>
+          <span id="time">30</span>
+        </div>
+      </div>
+
+      <h2 id="question-number"></h2>
+      <h2 id="question">Question text</h2>
+      <div id="options"></div>
+      <button id="lifeline-btn">50:50</button>
+      <p id="streak-msg"></p>
+      <p id="congrats-message" style="display: none">
+        🎉 3 in a row! Great job!
+      </p>
+    </div>
+
+    <div id="leaderboard-screen" class="hide">
+      <h2>Leaderboard</h2>
+      <p id="final-score"></p>
+      <ul id="leaderboard-list"></ul>
+      <button id="play-again" onclick="location.reload()">Play Again</button>
+    </div>
+
+    <footer
+      style="
+        text-align: center;
+        margin: 20px 0;
+        font-style: italic;
+        color: #ccc;
+      "
+    >
+      <p>Quiz Mania – Your Daily Brain Workout.</p>
+      <div style="margin-top: 10px">
+        <a
+          href="about.html"
+          style="color: white; text-decoration: none; margin: 0 8px"
+          >About Us</a
+        >
+        |
+        <a
+          href="contact.html"
+          style="color: white; text-decoration: none; margin: 0 8px"
+          >Contact Us</a
+        >
+        |
+        <a
+          href="privacy.html"
+          style="color: white; text-decoration: none; margin: 0 8px"
+          >Privacy Policy</a
+        >
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
