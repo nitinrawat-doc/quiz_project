@@ -2,78 +2,365 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Leaderboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard - Quiz Sharp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #111;
-      color: white;
-      font-family: sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      min-height: 100vh;
       padding: 20px;
     }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
     .container {
-      max-width: 600px;
-      margin: auto;
-      background: #222;
-      padding: 20px;
-      border-radius: 10px;
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      animation: fadeInUp 0.8s ease;
       text-align: center;
     }
+
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .trophy-icon {
+      font-size: 80px;
+      color: #ffd700;
+      margin-bottom: 15px;
+      animation: bounce 2s infinite;
+    }
+
     h1 {
-      text-align: center;
-    }
-    ol {
-      padding-left: 20px;
-      text-align: left;
-    }
-    li {
+      font-size: 42px;
       margin-bottom: 10px;
+      background: linear-gradient(to right, #fff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 30px;
+    }
+
+    #leaderboard-list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0;
+    }
+
+    #leaderboard-list li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 15px;
+      border-left: 4px solid #ffd700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 20px;
+      transition: all 0.3s ease;
+      animation: slideInRight 0.5s ease forwards;
+      opacity: 0;
+    }
+
+    #leaderboard-list li:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(5px);
+    }
+
+    #leaderboard-list li:nth-child(1) {
+      animation-delay: 0.1s;
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 107, 107, 0.3));
+      border-left-color: #ff6b6b;
+      font-weight: bold;
+      font-size: 22px;
+      padding: 25px;
+    }
+
+    #leaderboard-list li:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    #leaderboard-list li:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    #leaderboard-list li:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    #leaderboard-list li:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .player-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .medal {
+      font-size: 28px;
+      min-width: 40px;
+    }
+
+    .score-badge {
+      background: rgba(255, 215, 0, 0.3);
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: rgba(255, 255, 255, 0.7);
       font-size: 18px;
     }
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #00bcd4;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+
+    .empty-state i {
+      font-size: 60px;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 20px;
     }
-    button:hover {
-      background-color: #0097a7;
+
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    button, .btn {
+      padding: 15px 30px;
+      border-radius: 25px;
+      border: none;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .play-again-btn {
+      background: linear-gradient(135deg, #ffd700, #ff6b6b);
+      color: white;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .play-again-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+    }
+
+    .clear-btn {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .clear-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #ff6b6b;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-10px);
+      }
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      #leaderboard-list li {
+        font-size: 16px;
+        padding: 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      #leaderboard-list li:nth-child(1) {
+        font-size: 18px;
+      }
+
+      .medal {
+        font-size: 24px;
+      }
+
+      .action-buttons {
+        flex-direction: column;
+      }
+
+      button, .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
+  <div id="particles-js"></div>
+  
   <div class="container">
-    <h1>🏆 Leaderboard</h1>
+    <div class="header">
+      <i class="fas fa-trophy trophy-icon"></i>
+      <h1>🏆 Leaderboard</h1>
+      <p class="subtitle">Top 5 Quiz Masters</p>
+    </div>
+
     <ol id="leaderboard-list">
-      <!-- Scores will appear here -->
+      <!-- Scores will be dynamically loaded here -->
     </ol>
 
-    <!-- ✅ Play Again button -->
-    <button onclick="playAgain()">🔄 Play Again</button>
+    <div class="action-buttons">
+      <button class="play-again-btn" onclick="playAgain()">
+        <i class="fas fa-redo"></i> Play Again
+      </button>
+      <button class="clear-btn" onclick="clearLeaderboard()">
+        <i class="fas fa-trash-alt"></i> Clear Data
+      </button>
+    </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
-    const list = document.getElementById("leaderboard-list");
+    // Initialize Particles
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
 
-    if (leaderboard.length === 0) {
-      list.innerHTML = "<p>No scores yet.</p>";
-    } else {
-      leaderboard.forEach(entry => {
-        const li = document.createElement("li");
-        li.textContent = `${entry.name} - ${entry.score}`;
-        list.appendChild(li);
-      });
+    // Load and display leaderboard
+    function loadLeaderboard() {
+      const leaderboard = JSON.parse(localStorage.getItem("leaderboard")) || [];
+      const list = document.getElementById("leaderboard-list");
+
+      if (leaderboard.length === 0) {
+        list.innerHTML = `
+          <div class="empty-state">
+            <i class="fas fa-medal"></i>
+            <p>No scores yet. Be the first to play!</p>
+          </div>
+        `;
+      } else {
+        list.innerHTML = '';
+        leaderboard.forEach((entry, index) => {
+          const li = document.createElement("li");
+          
+          let medal = '';
+          if (index === 0) medal = '🥇';
+          else if (index === 1) medal = '🥈';
+          else if (index === 2) medal = '🥉';
+          else medal = `${index + 1}.`;
+          
+          li.innerHTML = `
+            <div class="player-info">
+              <span class="medal">${medal}</span>
+              <span>${entry.name}</span>
+            </div>
+            <span class="score-badge">${entry.score}/10</span>
+          `;
+          
+          list.appendChild(li);
+        });
+      }
     }
 
     function playAgain() {
-      // Change this if your main quiz file has a different name
-      window.location.href = "index.html"; 
+      window.location.href = "index.html";
     }
+
+    function clearLeaderboard() {
+      if (confirm("Are you sure you want to clear all leaderboard data? This action cannot be undone.")) {
+        localStorage.removeItem("leaderboard");
+        loadLeaderboard();
+        alert("✅ Leaderboard cleared successfully!");
+      }
+    }
+
+    // Load leaderboard on page load
+    loadLeaderboard();
   </script>
 </body>
 </html>

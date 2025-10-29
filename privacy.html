@@ -2,10 +2,271 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Privacy Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Quiz Sharp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header i {
+      font-size: 60px;
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #fff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .last-updated {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 30px;
+    }
+
+    .content {
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .content h2 {
+      font-size: 26px;
+      margin: 30px 0 15px;
+      color: #ffd700;
+    }
+
+    .content p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    .content ul {
+      margin: 15px 0 15px 30px;
+    }
+
+    .content li {
+      margin-bottom: 10px;
+    }
+
+    .highlight-box {
+      background: rgba(255, 215, 0, 0.1);
+      border-left: 4px solid #ffd700;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
+
+    .highlight-box i {
+      color: #ffd700;
+      margin-right: 10px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #ffd700, #ff6b6b);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+    }
+
+    .back-btn i {
+      margin-right: 8px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .content h2 {
+        font-size: 22px;
+      }
+
+      .content {
+        font-size: 15px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
-  <p>We value your privacy. QuizSharp does not collect or store any personal information from users. All quizzes are available for public use and do not require login or registration. We may use cookies for basic analytics or ad display purposes.</p>
+  <div id="particles-js"></div>
+  
+  <div class="container">
+    <div class="header">
+      <i class="fas fa-shield-alt"></i>
+      <h1>Privacy Policy</h1>
+      <p class="last-updated"><i class="fas fa-calendar"></i> Last Updated: October 2025</p>
+    </div>
+
+    <div class="content">
+      <div class="highlight-box">
+        <i class="fas fa-info-circle"></i>
+        <strong>Quick Summary:</strong> We value your privacy. Quiz Sharp does not collect or store any personal information from users. All data is stored locally in your browser.
+      </div>
+
+      <h2><i class="fas fa-database"></i> Information We Collect</h2>
+      <p>
+        Quiz Sharp is designed with privacy in mind. We DO NOT collect, store, or transmit any personal information to our servers. The only data stored is:
+      </p>
+      <ul>
+        <li><strong>Local Storage Data:</strong> Your quiz scores and leaderboard data are stored locally in your browser using localStorage. This data never leaves your device.</li>
+        <li><strong>Session Data:</strong> Temporary quiz session information stored in your browser's memory while you play.</li>
+      </ul>
+
+      <h2><i class="fas fa-user-shield"></i> User Privacy</h2>
+      <p>
+        <strong>No Login Required:</strong> Quiz Sharp does not require registration, login, or any personal information to use the platform. You can play anonymously or enter any name you prefer.
+      </p>
+      <p>
+        <strong>No Tracking:</strong> We do not use cookies for tracking purposes, and we do not monitor your browsing behavior or quiz activities beyond your current session.
+      </p>
+
+      <h2><i class="fas fa-external-link-alt"></i> Third-Party Services</h2>
+      <p>
+        Quiz Sharp uses the following third-party services:
+      </p>
+      <ul>
+        <li><strong>Open Trivia Database (OpenTDB):</strong> We fetch quiz questions from OpenTDB API. Please refer to their privacy policy for information about their data practices.</li>
+        <li><strong>CDN Services:</strong> We use Content Delivery Networks (Cloudflare CDN) to load external libraries like Particles.js and Font Awesome. These services may collect basic usage statistics.</li>
+      </ul>
+
+      <h2><i class="fas fa-cookie"></i> Cookies & Local Storage</h2>
+      <p>
+        We use browser's localStorage API to save your:
+      </p>
+      <ul>
+        <li>Quiz scores and leaderboard rankings</li>
+        <li>Your chosen username (if provided)</li>
+      </ul>
+      <p>
+        This data is stored locally on your device and can be cleared at any time through your browser settings. We do not use cookies for tracking or advertising purposes.
+      </p>
+
+      <h2><i class="fas fa-lock"></i> Data Security</h2>
+      <p>
+        Since no data is transmitted to our servers, your information remains secure on your device. However, please note that localStorage data can be accessed by other scripts running on the same domain, so avoid entering sensitive personal information.
+      </p>
+
+      <h2><i class="fas fa-child"></i> Children's Privacy</h2>
+      <p>
+        Quiz Sharp is suitable for users of all ages. We do not knowingly collect personal information from children. Since we don't collect any personal data at all, parents can feel confident allowing their children to use the platform.
+      </p>
+
+      <h2><i class="fas fa-edit"></i> Changes to Privacy Policy</h2>
+      <p>
+        We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date. Your continued use of Quiz Sharp after any changes indicates your acceptance of the updated policy.
+      </p>
+
+      <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+      <p>
+        If you have any questions or concerns about this privacy policy, please contact us at:
+      </p>
+      <p>
+        <strong>Email:</strong> <a href="mailto:quizsharp.help@gmail.com" style="color: #ffd700; text-decoration: none;">quizsharp.help@gmail.com</a>
+      </p>
+
+      <div class="highlight-box" style="margin-top: 30px;">
+        <i class="fas fa-heart"></i>
+        <strong>Our Commitment:</strong> Your privacy is important to us. We will never sell, trade, or distribute your personal information to third parties.
+      </div>
+
+      <div style="text-align: center;">
+        <a href="index.html" class="back-btn">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>

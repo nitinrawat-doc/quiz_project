@@ -2,10 +2,237 @@
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
-  <title>About Us</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Quiz Sharp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 50px auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      padding: 40px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .header i {
+      font-size: 60px;
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, #fff, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .content {
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .content p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 30px 0;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      border: 2px solid rgba(255, 215, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: #ffd700;
+      box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    }
+
+    .feature-card i {
+      font-size: 40px;
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: linear-gradient(135deg, #ffd700, #ff6b6b);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+    }
+
+    .back-btn i {
+      margin-right: 8px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .content {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>About Us</h1>
-  <p>QuizSharp ek educational platform hai jahan users apne knowledge ko test kar sakte hain quizzes ke through. Hamara aim hai learning ko fun banana.</p>
+  <div id="particles-js"></div>
+  
+  <div class="container">
+    <div class="header">
+      <i class="fas fa-brain"></i>
+      <h1>About Quiz Sharp</h1>
+    </div>
+
+    <div class="content">
+      <p>
+        <strong>Quiz Sharp</strong> ek innovative educational platform hai jahan users apne knowledge ko test kar sakte hain engaging quizzes ke through. Hamara mission hai learning ko fun, interactive aur challenging banana.
+      </p>
+
+      <p>
+        Humne Quiz Sharp ko design kiya hai students, professionals aur curious minds ke liye jo apne general knowledge aur subject expertise ko improve karna chahte hain. Multiple categories aur difficulty levels ke saath, har kisi ke liye kuch na kuch hai.
+      </p>
+
+      <div class="features">
+        <div class="feature-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Educational</h3>
+          <p>Learn while having fun</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fas fa-trophy"></i>
+          <h3>Competitive</h3>
+          <p>Leaderboard rankings</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fas fa-globe"></i>
+          <h3>Diverse Topics</h3>
+          <p>30+ categories</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Responsive</h3>
+          <p>Works on all devices</p>
+        </div>
+      </div>
+
+      <p>
+        Quiz Sharp ka interface user-friendly hai with beautiful animations aur interactive elements. Real-time timer, streak tracking, aur 50:50 lifeline jaise features quiz experience ko aur bhi exciting banate hain.
+      </p>
+
+      <p>
+        Toh aaj hi shuru karo apni learning journey Quiz Sharp ke saath! Test your knowledge, challenge your friends, aur top of the leaderboard par apna naam dekho.
+      </p>
+
+      <div style="text-align: center;">
+        <a href="index.html" class="back-btn">
+          <i class="fas fa-home"></i> Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.5, random: false },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'push' }, resize: true },
+        modes: { grab: { distance: 140, line_linked: { opacity: 1 } }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 </html>
